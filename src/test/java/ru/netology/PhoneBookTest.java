@@ -18,7 +18,14 @@ public class PhoneBookTest {
 		PhoneBook phoneBook = PhoneBook.getInstance();
 		phoneBook.add("Ivan" , "+79251002032");
 		String findByNumberResult = phoneBook.findByNumber("+79251002032");
-		assertNotNull("Котакт найден", findByNumberResult);
+		assertNotNull("Контакт найден", findByNumberResult);
 	}
-	
+
+	@Test
+	public void testFindByName() {
+		PhoneBook phoneBook = PhoneBook.getInstance();
+		phoneBook.add("Ivan" , "+79251002032");
+		String findByNameResult = phoneBook.findByName("Ivan");
+		assertNotNull("Контакт найден", findByNameResult);
+	}
 }

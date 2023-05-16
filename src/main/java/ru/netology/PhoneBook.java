@@ -32,5 +32,9 @@ public class PhoneBook {
 	public String findByNumber(String phoneNumber) {
 		return contactsByPhoneNumber.get(phoneNumber);
 	}
+
+	public String findByName(String name) {
+		return null;
+	}
 	
 }
