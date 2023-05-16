@@ -28,6 +28,8 @@ public class PhoneBook {
 		contactsByPhoneNumber.put(phoneNumber, name);
 		return 1;
 	}
-	
 
+	public String findByNumber(String phoneNumber) {
+		return null;
+	}
 }

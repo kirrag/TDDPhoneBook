@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.Assert.*;
 
 public class PhoneBookTest {
+
 	@Test
 	public void testAddition() {
 		PhoneBook phoneBook = PhoneBook.getInstance();
@@ -11,4 +12,13 @@ public class PhoneBookTest {
 		int unexpectedResult = 0;
 		assertNotEquals("Контакт добавлен", unexpectedResult, addResult);
 	}
+
+	@Test
+	public void testFindByNumber() {
+		PhoneBook phoneBook = PhoneBook.getInstance();
+		phoneBook.add("Ivan" , "+79251002032");
+		String findByNumberResult = phoneBook.findByNumber("+79251002032");
+		assertNotNull("Котакт найден", findByNumberResult);
+	}
+	
 }
