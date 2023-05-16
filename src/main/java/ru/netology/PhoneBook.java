@@ -1,9 +1,14 @@
 package ru.netology;
 
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeMap;
 
 public class PhoneBook {
 	private static PhoneBook INSTANCE = null;
 
+	private Map<String, String> contactsByName = new TreeMap<>();
+	private Map<String, String> contactsByPhoneNumber = new HashMap<>();
 
 	private PhoneBook() {};
 
@@ -19,7 +24,9 @@ public class PhoneBook {
 	}
 
 	public int add(String name, String phoneNumber)  {
-		return 0;
+		contactsByName.put(name, phoneNumber);
+		contactsByPhoneNumber.put(phoneNumber, name);
+		return 1;
 	}
 	
 
