@@ -2,6 +2,9 @@ package ru.netology;
 
 import org.junit.jupiter.api.*;
 import static org.junit.Assert.*;
+import java.io.PrintStream;
+import java.io.ByteArrayOutputStream;
+
 
 public class PhoneBookTest {
 
@@ -27,5 +30,30 @@ public class PhoneBookTest {
 		phoneBook.add("Ivan" , "+79251002032");
 		String findByNameResult = phoneBook.findByName("Ivan");
 		assertNotNull("Контакт найден", findByNameResult);
+	}
+	private final PrintStream standardOut = System.out;
+	private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
+	@BeforeEach
+	public void setUp() {
+    	System.setOut(new PrintStream(outputStreamCaptor));
+	}
+
+	@Test
+	public void testPrintAllNames() {
+		PhoneBook phoneBook = PhoneBook.getInstance();
+		phoneBook.add("Ivan" , "+79251002032");
+		phoneBook.add("Anna" , "+79251002031");
+		phoneBook.add("Peter" , "+79251002033");
+
+		phoneBook.printAllNames();
+
+		assertEquals("[Anna, Ivan, Peter]", outputStreamCaptor.toString().trim());
+
+	}
+	
+	@AfterEach
+	public void tearDown() {
+    	System.setOut(standardOut);
 	}
 }
