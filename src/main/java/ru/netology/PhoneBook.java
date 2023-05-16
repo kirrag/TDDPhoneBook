@@ -38,7 +38,7 @@ public class PhoneBook {
 	}
 
 	public void printAllNames() {
-		System.out.println();
+		System.out.println(contactsByName.keySet());		
 	}
 	
 }
